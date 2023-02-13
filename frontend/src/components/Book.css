@@ -1,0 +1,14 @@
+
+.book-div {
+    width:400px;
+    height:250px;
+    display:flex;
+    margin:20px;
+}
+.description-div {
+    margin-left:20px;
+}
+
+.book-div img {
+    width:150px;
+}
