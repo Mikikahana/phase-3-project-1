@@ -7,8 +7,7 @@ import { Route, Routes, Link} from 'react-router-dom'
 function App() {
   const [books, setBooks] = useState([])
   const [collection, setCollection] = useState([])
-  
-
+ 
   useEffect(() => {
     fetch("http://localhost:9292/books")
     .then((response) => response.json())
@@ -16,8 +15,7 @@ function App() {
   },[])
 
   function addToCollection(book) {
-    setCollection(prevCollection => [...prevCollection, book])
-    console.log(collection)
+    
     fetch('http://localhost:9292/collections', {
       method: 'POST',
       headers: {
@@ -32,15 +30,11 @@ function App() {
       })
     })
       .then(response => response.json())
-      .then(data => console.log('Success:', data))
+      .then(data => setCollection(prevCollection => [...prevCollection, data]))
       .catch(error => console.error('Error:', error))
-
-    //setBooks(prevBooks => [...prevBooks, book])
   }
-
-  function deleteBook(bookToDelete) {
-    setBooks(books.filter(book => book.id !== bookToDelete.id))
-  }
+  console.log(collection)
+  
   return (
       <div className="app">
         <Header />
@@ -54,7 +48,7 @@ function App() {
             /> }></Route>
           <Route path='/collections' element={<MyCollection 
             collection={collection}
-            deleteBook={deleteBook}
+            setCollection={setCollection}
             />}></Route>
         </Routes>
       </div>
