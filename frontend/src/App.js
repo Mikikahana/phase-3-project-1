@@ -43,9 +43,8 @@ function App() {
   }
   return (
       <div className="app">
-        <Header />
+        <Header books={books}/>
         <Link to='/collections'><button>Go to my Collection</button></Link>
-        
         <Routes>
           <Route exact path='/' element= {<Content 
             books={books}

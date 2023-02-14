@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Header.css"
-import Search from "./Search"
+import Search from './Search'
+
 
 export default function Header() {
+
+const [search, setSearch] = useState('')
+
   return (
     <div className="Header">Header
-    <Search />
+    <Search search={search}  handleSetSearch={setSearch}/>
     </div>
   )
 }
