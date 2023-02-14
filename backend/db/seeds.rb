@@ -1,4 +1,4 @@
-require 'faker'
+
 puts "🌱 Seeding spices..."
 Book.destroy_all
 
