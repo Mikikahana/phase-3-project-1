@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
 
 
 	get '/collections' do
-		collection.UserCollection.all
+		collection = UserCollection.all
 		collection.to_json
 	end
   
