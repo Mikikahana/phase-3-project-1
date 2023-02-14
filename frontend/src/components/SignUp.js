@@ -91,6 +91,7 @@ function SignUp({ handleLogin }) {
                         required
                     />
                 </div>
+                <button>Sign Up</button>
             </form>
         </div>
     )

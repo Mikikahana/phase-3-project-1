@@ -27,7 +27,8 @@ function App() {
         author: book.author,
         published_year: book.published_year,
         description: book.description,
-        image_url: book.image_url
+        image_url: book.image_url,
+        reader_id: 9
       })
     })
       .then(response => response.json())
@@ -39,7 +40,7 @@ function App() {
   return (
       <div className="app">
         <Header />
-        <Link to='/collections'><button>Go to my Collection</button></Link>
+       
         
         <Routes>
           <Route exact path='/' element= {<Content 

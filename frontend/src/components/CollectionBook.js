@@ -1,31 +1,21 @@
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import './CollectionBook.css'
 
-export default function CollectionBook({myBooks,setCollection}) {
+export default function CollectionBook({myBooks,setToggle}) {
     const {title, image_url, author, published_year, description,id} = myBooks
     
 
 
-  function removeBook(book) {
-      const newBooks = { ...myBooks }
-      delete newBooks[book.id]
-    
-      setCollection(newBooks)
-    
-      fetch(`http://localhost:9292/collections/${book.id}`, {
+  function removeBook(id) {
+      fetch(`http://localhost:9292/collections/${id}`, {
         method: 'DELETE',
       })
         .then(response => response.json())
-        .then(data => console.log('Success:', data))
+        .then(data => setToggle(prev=>!prev))
         .catch(error => console.error('Error:', error));
     }
 
-  /*   useEffect(() => {
-      fetch(`http://localhost:9292/collections`)
-      .then(response => response.json())
-      .then(data => console.log('Success:', data))
-    },[])
- */
+
   return (
     <div className="myBooks-div">
        <img src={image_url} alt="book-image"/>
@@ -34,7 +24,7 @@ export default function CollectionBook({myBooks,setCollection}) {
           <h4>{author}</h4>
           <h3>Published : {published_year}</h3>
           <p>{description}</p>
-          <button onClick={removeBook}>Remove from collection</button>
+          <button onClick={(e)=>removeBook(id)}>Remove from collection</button>
          </div>
     </div>
   )
