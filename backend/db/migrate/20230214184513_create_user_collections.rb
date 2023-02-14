@@ -6,6 +6,7 @@ class CreateUserCollections < ActiveRecord::Migration[6.1]
       t.integer :published_year
       t.text :description
       t.string :image_url
+      t.integer :reader_id
     end
   end
 end

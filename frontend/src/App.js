@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import Header from './components/Header'
 import Content from './components/Content'
 import MyCollection from './components/MyCollection'
+import SignUp from './components/SignUp'
 import { Route, Routes, Link} from 'react-router-dom'
 
 function App() {
@@ -26,7 +27,8 @@ function App() {
         author: book.author,
         published_year: book.published_year,
         description: book.description,
-        image_url: book.image_url
+        image_url: book.image_url,
+        reader_id: 9
       })
     })
       .then(response => response.json())
@@ -38,7 +40,7 @@ function App() {
   return (
       <div className="app">
         <Header />
-        <Link to='/collections'><button>Go to my Collection</button></Link>
+       
         
         <Routes>
           <Route exact path='/' element= {<Content 
@@ -46,10 +48,14 @@ function App() {
             setBooks={setBooks} 
             handleAddToCollection={addToCollection}
             /> }></Route>
+
           <Route path='/collections' element={<MyCollection 
             collection={collection}
             setCollection={setCollection}
             />}></Route>
+
+          <Route path='/signup' element={<SignUp />}/>
+            {/* <SignUp handleLogin={handleLogin}/> */}
         </Routes>
       </div>
   )
