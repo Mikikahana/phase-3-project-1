@@ -39,9 +39,10 @@ function App() {
   
   return (
       <div className="app">
-        <Header />
+
+
+          <Header books={books}/>
        
-        
         <Routes>
           <Route exact path='/' element= {<Content 
             books={books}
