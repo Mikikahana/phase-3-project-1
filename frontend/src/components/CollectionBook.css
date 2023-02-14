@@ -1,0 +1,9 @@
+.myBooks-div {
+    width:600px;
+    height:400px;
+    display:flex;
+
+}
+.myBooks-div img {
+    width:300px;
+}

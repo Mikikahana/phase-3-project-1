@@ -3,7 +3,7 @@ import Book from './Book'
 import './Content.css'
 import AddBookForm from './AddBookForm'
 
-export default function Content({books, setBooks}) {
+export default function Content({books, setBooks, handleAddToCollection}) {
 const [newBook, setNewBook] = useState ( {
   title: "",
   author: "",
@@ -65,8 +65,10 @@ const handleFormSubmit = (event) => {
         <Book 
           book={book_data} 
           key={book_data.id}
+          handleAddToCollection={handleAddToCollection}
         />
       ))}
+      
     </div>
   )
 }
