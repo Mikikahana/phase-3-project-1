@@ -2,8 +2,16 @@
     width:600px;
     height:400px;
     display:flex;
-
+    margin:20px;
 }
 .myBooks-div img {
+    height:300px;
     width:300px;
+    margin:20px;
+}
+.desc-div {
+    width: 400px;
+}
+.desc-div h3 {
+    font-size:28px;
 }
