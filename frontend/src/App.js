@@ -2,13 +2,13 @@ import {useState, useEffect} from 'react'
 import Header from './components/Header'
 import Content from './components/Content'
 import MyCollection from './components/MyCollection'
+import SignUp from './components/SignUp'
 import { Route, Routes, Link} from 'react-router-dom'
 
 function App() {
   const [books, setBooks] = useState([])
   const [collection, setCollection] = useState([])
-  
-
+ 
   useEffect(() => {
     fetch("http://localhost:9292/books")
     .then((response) => response.json())
@@ -16,8 +16,7 @@ function App() {
   },[])
 
   function addToCollection(book) {
-    setCollection(prevCollection => [...prevCollection, book])
-    console.log(collection)
+    
     fetch('http://localhost:9292/collections', {
       method: 'POST',
       headers: {
@@ -28,33 +27,36 @@ function App() {
         author: book.author,
         published_year: book.published_year,
         description: book.description,
-        image_url: book.image_url
+        image_url: book.image_url,
+        reader_id: 9
       })
     })
       .then(response => response.json())
-      .then(data => console.log('Success:', data))
+      .then(data => setCollection(prevCollection => [...prevCollection, data]))
       .catch(error => console.error('Error:', error))
-
-    //setBooks(prevBooks => [...prevBooks, book])
   }
-
-  function deleteBook(bookToDelete) {
-    setBooks(books.filter(book => book.id !== bookToDelete.id))
-  }
+  console.log(collection)
+  
   return (
       <div className="app">
-        <Header books={books}/>
-        <Link to='/collections'><button>Go to my Collection</button></Link>
+
+
+          <Header books={books}/>
+       
         <Routes>
           <Route exact path='/' element= {<Content 
             books={books}
             setBooks={setBooks} 
             handleAddToCollection={addToCollection}
             /> }></Route>
+
           <Route path='/collections' element={<MyCollection 
             collection={collection}
-            deleteBook={deleteBook}
+            setCollection={setCollection}
             />}></Route>
+
+          <Route path='/signup' element={<SignUp />}/>
+            {/* <SignUp handleLogin={handleLogin}/> */}
         </Routes>
       </div>
   )

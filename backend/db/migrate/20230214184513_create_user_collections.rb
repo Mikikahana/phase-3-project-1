@@ -1,11 +1,12 @@
-class CreateCollections < ActiveRecord::Migration[6.1]
+class CreateUserCollections < ActiveRecord::Migration[6.1]
   def change
-    create_table :collections do |t|
+    create_table :user_collections do |t|
       t.string :title
       t.string :author
       t.integer :published_year
       t.text :description
       t.string :image_url
+      t.integer :reader_id
     end
   end
 end
