@@ -8,6 +8,8 @@ import { Route, Routes, Link} from 'react-router-dom'
 function App() {
   const [books, setBooks] = useState([])
   const [collection, setCollection] = useState([])
+  const [search, setSearch] = useState("")
+
  
   useEffect(() => {
     fetch("http://localhost:9292/books")
@@ -35,17 +37,18 @@ function App() {
       .then(data => setCollection(prevCollection => [...prevCollection, data]))
       .catch(error => console.error('Error:', error))
   }
-  console.log(collection)
+
+  const filteredBooks = books.filter(book => {
+    return  book.title.toLowerCase().includes(search.toLowerCase()) ||
+    book.author.toLowerCase().includes(search.toLowerCase()) 
+    })
   
   return (
       <div className="app">
-
-
-          <Header books={books}/>
-       
+        <Header search={search} setSearch={setSearch}/>
         <Routes>
           <Route exact path='/' element= {<Content 
-            books={books}
+            books={filteredBooks}
             setBooks={setBooks} 
             handleAddToCollection={addToCollection}
             /> }></Route>
