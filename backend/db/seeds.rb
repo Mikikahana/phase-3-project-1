@@ -1,11 +1,10 @@
 
 puts "🌱 Seeding spices..."
 Book.destroy_all
+Reader.destroy_all
 
 # Seed your database here
-
-
-
+puts "Seeding books 📚..."
   Book.create!(
     image_url: "https://m.media-amazon.com/images/I/81koLrk+hFL._AC_UF350,350_QL50_.jpg",
     title: "Blue Remembered Earth",
@@ -41,5 +40,15 @@ Book.destroy_all
     published_year: 1934,
     description: "Ut nostrum voluptas. A et quia. Aut accusamus ut. Assumenda fuga repellendus. Vero exercitationem odit."
   )
+
+
+  # readers
+  puts "Seeding readers 👥..."
+    Reader.create(first_name: "Clyde", last_name: "Qasolli", username: "cqasolli", email: "cqasolli@example.com", password: "abc123")
+    Reader.create(first_name: "Miki", last_name: "Kahana", username: "mkahana", email: "mkahana@example.com", password: "abc123")
+    Reader.create(first_name: "Shadiya", last_name: "Egal", username: "segal", email: "segal@example.com", password: "abc123")
+    Reader.create(first_name: "Jess", last_name: "Andrade", username: "jandrade", email: "jandrade@example.com", password: "abc123")  
+
  
+
 puts "✅ Done seeding!"

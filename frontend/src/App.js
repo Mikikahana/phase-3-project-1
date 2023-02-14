@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import Header from './components/Header'
 import Content from './components/Content'
 import MyCollection from './components/MyCollection'
+import SignUp from './components/SignUp'
 import { Route, Routes, Link} from 'react-router-dom'
 
 function App() {
@@ -46,10 +47,14 @@ function App() {
             setBooks={setBooks} 
             handleAddToCollection={addToCollection}
             /> }></Route>
+
           <Route path='/collections' element={<MyCollection 
             collection={collection}
             setCollection={setCollection}
             />}></Route>
+
+          <Route path='/signup' element={<SignUp />}/>
+            {/* <SignUp handleLogin={handleLogin}/> */}
         </Routes>
       </div>
   )
