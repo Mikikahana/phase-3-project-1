@@ -25,9 +25,20 @@ class ApplicationController < Sinatra::Base
 	end
   
 
-  delete "/collections/:id" do
+  	delete "/collections/:id" do
 		book = Book.find(params[:id])
 		book.destroy
 		book.to_json
 	end
+
+	post "/signup" do 
+		reader = Reader.find_by(username: params[:username])
+		if reader == nil
+		reader = Reader.create(username: params[:username], password: params[:password], first_name: params[:first_name],
+		last_name: params[:last_name], email: params[:email])
+		reader.to_json
+		end
+	end
+
+
 end
