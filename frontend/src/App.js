@@ -16,7 +16,8 @@ function App() {
   },[])
 
   function addToCollection(book) {
-    setCollection(prevCollection => [...prevCollection, book]);
+    setCollection(prevCollection => [...prevCollection, book])
+    console.log(collection)
     fetch('http://localhost:9292/collections', {
       method: 'POST',
       headers: {
@@ -32,7 +33,9 @@ function App() {
     })
       .then(response => response.json())
       .then(data => console.log('Success:', data))
-      .catch(error => console.error('Error:', error));
+      .catch(error => console.error('Error:', error))
+
+    //setBooks(prevBooks => [...prevBooks, book])
   }
 
   function deleteBook(bookToDelete) {

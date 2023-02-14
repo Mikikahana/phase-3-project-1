@@ -18,19 +18,15 @@ class ApplicationController < Sinatra::Base
 		books.to_json
 	end
 
-  post "/collections" do
-		book = Book.create(
-			title: params[:title],
-      author: params[:author],
-      published_year: params[:published_year],
-      description: params[:description],
-			image_url: params[:image_url],
-		)
-		book.to_json
+
+	get '/collections' do
+		collections.Collection.all
+		collections.to_json
 	end
+  
 
   delete "/collections/:id" do
-		book = Menu.find(params[:id])
+		book = Book.find(params[:id])
 		book.destroy
 		book.to_json
 	end

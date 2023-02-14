@@ -3,18 +3,20 @@ import Book from './Book'
 import './Content.css'
 import AddBookForm from './AddBookForm'
 
-export default function Content({books, setBooks, handleAddToCollection}) {
-const [newBook, setNewBook] = useState ( {
+
+const book = {
   title: "",
   author: "",
   image: "",
   published_year: "",
   description: ""
-})
+}
+export default function Content({books, setBooks, handleAddToCollection}) {
+const [newBook, setNewBook] = useState (book)
 
 const handleInputChange = (event) => {
-  const { name, value } = event.target;
-  setNewBook({ ...newBook, [name]: value });
+  const { name, value } = event.target
+  setNewBook({ ...newBook, [name]: value })
 }
 
 const handleFormSubmit = (event) => {
@@ -25,14 +27,8 @@ const handleFormSubmit = (event) => {
     image: newBook.image,
     published_year: newBook.published_year,
     description: newBook.description
-  };
-  setNewBook({
-    title: '',
-    author: '',
-    image: '',
-    published_year: '',
-    description: ''
-  });
+  }
+  setNewBook(book);
   fetch('http://localhost:9292/books', {
     method: 'POST',
     headers: {

@@ -4,16 +4,22 @@ import './CollectionBook.css'
 export default function CollectionBook({myBooks, deleteBook}) {
     const {title, image_url, author, published_year, description,id} = myBooks
 
-    function removeBook(book) {
+    function removeBook(bookToDelete) {
       fetch(`http://localhost:9292/collections/${id}`, {
         method: 'DELETE'
       })
-      .then(response => response.json())
-      .then(deleteBook(book))
+      .then(response => {
+        if (response.ok) {
+          deleteBook(bookToDelete)
+        } else {
+          throw new Error('Failed to delete book')
+        }
+      })
       .catch(error => {
         console.error(error);
       });
     }
+    
   return (
     <div className="myBooks-div">
        <img src={image_url} alt="book-image"/>
@@ -22,7 +28,7 @@ export default function CollectionBook({myBooks, deleteBook}) {
           <h4>{author}</h4>
           <h3>Published : {published_year}</h3>
           <p>{description}</p>
-          <button onClick={() =>removeBook(myBooks.id)}>Remove from collection</button>
+          <button onClick={(e) =>removeBook(e)}>Remove from collection</button>
          </div>
     </div>
   )

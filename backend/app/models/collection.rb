@@ -1,4 +1,4 @@
 class Collection < ActiveRecord::Base
-    belongs_to :reader 
     has_many :books
+    belongs_to :reader 
 end
