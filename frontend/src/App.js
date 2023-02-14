@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Content from './components/Content'
 import MyCollection from './components/MyCollection'
 import SignUp from './components/SignUp'
+import MyProfile from './components/MyProfile'
 import { Route, Routes, Link} from 'react-router-dom'
 
 function App() {
@@ -59,6 +60,8 @@ function App() {
             />}></Route>
 
           <Route path='/signup' element={<SignUp />}/>
+
+          <Route path='/profile' element={<MyProfile/>}/>
             {/* <SignUp handleLogin={handleLogin}/> */}
         </Routes>
       </div>
