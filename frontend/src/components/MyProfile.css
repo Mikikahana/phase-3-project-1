@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Aguafina+Script|Artifika|Athiti|Condiment|Dosis|Droid+Serif|Farsan|Gurajada|Josefin+Sans|Lato|Lora|Merriweather|Noto+Serif|Open+Sans+Condensed:300|Playfair+Display|Rasa|Sahitya|Share+Tech|Text+Me+One|Titillium+Web');
+.profile-container {
+	margin-bottom: 30px;
+	border: solid 1px rgba(0, 0, 0, 0.20);
+	padding: 30px;
+	border-radius: 50px;
+	margin-left: 12%;
+	margin-right: 12%;
+	margin-top: 50px;
+}
+
+.profile-container:hover {
+	box-shadow:0 0 12px 3px rgba(0, 0, 0, 0.08);
+}
+
+
+.edit-button:hover {
+	box-shadow:0 0 12px 3px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+	margin-top: 10px;
+}
+
+.profile-pic-div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 300px;
+	margin-top: 25px;
+}
+
+.user-picture-in-profile {
+	display: flex;
+		margin: 10px;
+		border-radius: 10%;
+		position: relative;
+		border: solid 1px rgba(0, 0, 0, 0.20);
+		border-radius: 50%;
+		height: 15%;
+		bottom: 150px;
+}
+
+/* .user-picture-in-profile:hover {
+	box-shadow:0 0 12px 3px rgba(0, 0, 0, 0.08) ;
+	
+} */
+
+.profile-heading {
+	font-family: "Farsan", cursive;
+	position: relative;
+	font-weight: bolder;
+	font-size: 50px;
+	border-bottom: solid 1px rgba(0, 0, 0, 0.20);
+	padding: 15px;
+	/* margin-bottom: 6%; */
+
+
+}
+
+.link-to-edit {
+	text-decoration: none;
+}
+
+.edit-button {
+	background: transparent;
+		margin-top: 20px;
+		border-radius: 26px;
+		border: 1px solid #D4D3E8;
+		font-weight: 700;
+		/* display: flex; */
+		/* align-items: center; */
+		width: 70%;
+		color: #373634;
+		box-shadow: 0px 2px 2px #434348;
+		cursor: pointer;
+		transition: .2s;
+		/* margin-left: 1px;
+		margin-bottom: 30px; */
+		padding: 5px;
+		font-family: 'Alex Brush', cursive;
+		/* position: relative; */
+		width: 90px;
+		/* top: 120px;
+		left: 40px; */
+
+}
