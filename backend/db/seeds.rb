@@ -41,5 +41,5 @@ Book.destroy_all
     published_year: 1934,
     description: "Ut nostrum voluptas. A et quia. Aut accusamus ut. Assumenda fuga repellendus. Vero exercitationem odit."
   )
-
+ 
 puts "✅ Done seeding!"
