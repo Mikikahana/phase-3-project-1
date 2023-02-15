@@ -1,5 +1,5 @@
 
-puts "🌱 Seeding spices..."
+
 Book.destroy_all
 Reader.destroy_all
 UserCollection.destroy_all
