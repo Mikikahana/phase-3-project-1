@@ -19,20 +19,28 @@ export default function CollectionBook({myBooks,setToggle}) {
 
  //Post a note to the book 
   function handleChange(e) {
-    e.preventDefault()
     setNoteText(e.target.value)
-    noteArr.push(noteText)
-      /* fetch("http://localhost:9292/collections", {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(noteText)
-      })
-      .then(resp => resp.json())
-      .then(data => {
-      }) */   
   }
 
-  console.log(noteText)
+  function handleSubmit(e) {
+    e.preventDefault()
+    fetch(`http://localhost:9292/collections/${id}/notes`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        note: noteText,
+        reader_id: 9,
+        book_id: id
+      })
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      setNoteArr(prevNotes => [...prevNotes, data])
+      setNoteText('')
+    })
+    .catch(error => console.error('Error:', error))
+}
+
   return (
     <div className="myBooks-div">
        <img src={image_url} alt="book-image"/>
@@ -42,24 +50,24 @@ export default function CollectionBook({myBooks,setToggle}) {
           <h3>Published : {published_year}</h3>
           <p>{description}</p>
           <button onClick={(e)=>removeBook(id)}>Remove from collection</button>
-          <form>
+          <form onSubmit={handleSubmit}>
             <button type="submit">Add Notes</button>
             <textarea
               type="text" 
-              name="note" 
+              name="noteText" 
               value={noteText} 
               onChange={handleChange} 
             ></textarea>
-            <button>Edit Note</button>
-          </form>
-          <ul>
-            {noteArr.map(data=> (
-              <NotesList
-              notes={data}
-              key={data.id}
-              />
-            ))}
-          </ul>
+          
+          </form >
+          {noteArr.map((note, index) => {
+            
+            console.log(note)
+            return <NotesList 
+            key={index} 
+            note={note.note} />
+            })}
+                       
          </div>
     </div>
   )

@@ -51,15 +51,21 @@ class ApplicationController < Sinatra::Base
 		)
 		collections.to_json
 	end
-	#get "/collections/:id" do 
-	#	book_id= params[:book_id],
-	#	book_id.to_json
-	#end
-
+    #Delete book from collection 
   	delete "/collections/:id" do
 		user_collection = UserCollection.find(params[:id])
 		user_collection.destroy
 		user_collection.to_json
+	end
+
+	#Post new Notes 
+	post "/collections/:id/notes" do
+		note = Note.create(
+			note: params[:note],
+			book_id: params[:book_id],
+			reader_id: params[:reader_id]
+		)
+		note.to_json
 	end
 
 	post "/signup" do 
