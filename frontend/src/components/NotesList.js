@@ -1,8 +1,7 @@
 import React from 'react'
 
-export default function NotesList({notes}) {
-    console.log(notes)
+export default function NotesList({note}) {
   return (
-    <div>{notes}</div>
+        <li> {note} <button>Edit Note</button></li>
   )
 }

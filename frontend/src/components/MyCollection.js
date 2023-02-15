@@ -9,11 +9,12 @@ export default function MyCollection({collection, setCollection}) {
       fetch(`http://localhost:9292/collections/9`,)
       .then(response => response.json())
       .then(data => setCollection(data))
-    },[toggle])
+    },[toggle,setCollection])
  
 
   return (
     <div>
+      <h1>My Collection of Books </h1>
         {collection.map((myBooks,index) => (
             <CollectionBook 
             myBooks={myBooks}
