@@ -4,19 +4,26 @@ import Content from './components/Content'
 import MyCollection from './components/MyCollection'
 import SignUp from './components/SignUp'
 import MyProfile from './components/MyProfile'
-import { Route, Routes, Link} from 'react-router-dom'
+import Login from './components/Login'
+import { Route, Routes, Navigate, useNavigate} from 'react-router-dom'
 
 function App() {
+  const [reader, setReader] = useState({})
   const [books, setBooks] = useState([])
   const [collection, setCollection] = useState([])
   const [search, setSearch] = useState("")
-
+  const navigate = useNavigate()
  
   useEffect(() => {
     fetch("http://localhost:9292/books")
     .then((response) => response.json())
     .then(setBooks)
   },[])
+
+  function handleLogin(reader) {
+    setReader({})
+    navigate("/login")
+  }
 
   function addToCollection(book) {
     
@@ -63,6 +70,7 @@ function App() {
 
           <Route path='/profile' element={<MyProfile/>}/>
             {/* <SignUp handleLogin={handleLogin}/> */}
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
   )

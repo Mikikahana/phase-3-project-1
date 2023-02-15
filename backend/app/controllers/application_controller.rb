@@ -2,6 +2,18 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   #enpoints 
+  get "/readers" do
+	Reader.all.to_json
+  end
+
+  get '/readers/:id' do
+    reader = Reader.find(params[:id]).to_json
+  end
+
+  post '/readers' do
+    newReader = Reader.create(username:params[:username], password:params[:password]).to_json
+  end
+
   get "/books" do
     books = Book.all
     books.to_json()
@@ -17,7 +29,6 @@ class ApplicationController < Sinatra::Base
 		)
 		books.to_json
 	end
-
 
 	get '/collections' do
 		collection = UserCollection.all
@@ -44,7 +55,6 @@ class ApplicationController < Sinatra::Base
 	#	book_id= params[:book_id],
 	#	book_id.to_json
 	#end
-
 
   	delete "/collections/:id" do
 		user_collection = UserCollection.find(params[:id])
