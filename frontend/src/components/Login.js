@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import SignUp from "./SignUp"
-import Header from "./Header"
 import { useNavigate } from "react-router-dom"
 
 function Login(){
@@ -26,9 +25,9 @@ function Login(){
         e.preventDefault()
         const account = readers.find((reader) => reader.username === username)
             if (account && account.password === password) {
-                setauthenticated(true)
+                setAuth(true)
                 localStorage.setItem("authenticated", true)
-                navigate("/Header")
+                navigate("/")
             }
         }
 
@@ -38,16 +37,23 @@ return (
         <form name="log-in" onSubmit={handleLoginSubmit}>
         <div className="form-group">
         <label>Username:</label>
-            <input name="Username" onChange={(e) => setUsername(e.target.value)} placeholder="Username" />
+            <input
+            name="Username"
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Username" />
         </div>
         <div className="form-group">
           <label>Password:</label>
-          <input name="Password" onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" />
+          <input
+          name="Password" onChange={(e) => setPassword(e.target.value)}
+          type="password"
+          placeholder="Password" />
         </div>
-        <button type="submit">Submit</button>
-        <h4> or </h4>,
+
+        <button type="submit">Login</button>
+        <h4> or create an account! </h4>
         <button onClick={handleClickLoginForm} className="button">
-          Create an account
+          Sign Up
         </button>
         {showLoginForm ? <SignUp readers={readers} setReaders={setReaders} /> : null}
       </form>

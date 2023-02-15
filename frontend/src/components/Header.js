@@ -8,9 +8,11 @@ export default function Header({search, setSearch, activeUser}) {
     <div className="Header">
       <Link to='/'><button>Home</button></Link>
       <Search search={search}  setSearch={setSearch}/>
-      <Link to='/collections'><button>Go to my Collection</button></Link>
+      <Link to='/collections'><button>My Collection</button></Link>
+      {/* { activeUser ? <Link to='/profile'><button className='profileBtn'>My Profile</button></Link> :
+      <Link to='/signup'><button className="signupBtn">Sign Up</button></Link>} */}
       { activeUser ? <Link to='/profile'><button className='profileBtn'>My Profile</button></Link> :
-      <Link to='/signup'><button className="signupBtn">Sign Up</button></Link>}
+      <Link to='/login'><button>Login</button></Link>}
     </div>
   )
 }

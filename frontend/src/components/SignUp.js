@@ -31,7 +31,7 @@ function SignUp({ handleLogin }) {
             <h3>Sign Up</h3>
             <form name="sign-up" onSubmit={handleSignUpSubmit}>
                 <div className="form-group">
-                    <label>First Name:</label>
+                    <label>First Name: </label>
                     <input
                         value={readerInfo.first_name}
                         onChange={handleReaderInfoChange}
@@ -44,6 +44,7 @@ function SignUp({ handleLogin }) {
                     />
                 </div>
                 <div className="form-group">
+                    <label>Last Name: </label>
                     <input
                         value={readerInfo.last_name}
                         onChange={handleReaderInfoChange}
@@ -56,6 +57,7 @@ function SignUp({ handleLogin }) {
                     />
                 </div>
                 <div className="form-group">
+                    <label>Username: </label>
                     <input
                         value={readerInfo.username}
                         onChange={handleReaderInfoChange}
@@ -68,6 +70,7 @@ function SignUp({ handleLogin }) {
                     />
                 </div>
                 <div className="form-group">
+                    <label>Email: </label>
                     <input
                         value={readerInfo.email}
                         onChange={(e) => setReaderInfo(e.target.value)}
@@ -80,6 +83,7 @@ function SignUp({ handleLogin }) {
                     />
                 </div>
                 <div className="form-group">
+                    <label>Password: </label>
                     <input
                         value={readerInfo.password}
                         onChange={(e) => setReaderInfo(e.target.value)}

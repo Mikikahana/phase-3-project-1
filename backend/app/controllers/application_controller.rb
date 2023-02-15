@@ -30,7 +30,6 @@ class ApplicationController < Sinatra::Base
 		books.to_json
 	end
 
-
 	get '/collections' do
 		collection = UserCollection.all
 		collection.to_json
@@ -56,7 +55,6 @@ class ApplicationController < Sinatra::Base
 	#	book_id= params[:book_id],
 	#	book_id.to_json
 	#end
-
 
   	delete "/collections/:id" do
 		user_collection = UserCollection.find(params[:id])
