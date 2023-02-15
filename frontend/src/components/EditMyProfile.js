@@ -7,7 +7,8 @@ function EditMyProfile ({ activeUser, setActiveUser }) {
 	const initialValues = {
 		first_name: "",
 		last_name: "",
-		image_url: "",
+        username: "",
+        email: "",
 	};
 
 	const [formData, setFormData] = useState(initialValues);
@@ -55,7 +56,7 @@ function EditMyProfile ({ activeUser, setActiveUser }) {
     <div className="edit-container">
         <h1>Edit Profile</h1>
 		<form onSubmit={handleSubmit}>
-			<div className="label">first name:</div>
+			<div className="label">First name:</div>
 		<input
 			required className="field"
 			id="edit-firstname"
@@ -63,11 +64,12 @@ function EditMyProfile ({ activeUser, setActiveUser }) {
 			name="first_name"
 			value={formData.first_name}
 			onChange={handleChange}
+            placeholder="Edit First Name"
 		/>
 
 	<br/>
 
-	<div className="label">last name:</div>
+	<div className="label">Last name:</div>
 		<input
 			required className="field"
 			id="edit-lastname"
@@ -75,25 +77,35 @@ function EditMyProfile ({ activeUser, setActiveUser }) {
 			name="last_name"
 			value={formData.last_name}
 			onChange={handleChange}
+            placeholder="Edit Last Name"
 		/>
-
 	<br/>
+    <div className="label">Username:</div>
+        <input
+            required className="field"
+            id="edit-username"
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            placeholder="Edit Username"
+        />
+    <br/>
+    <div className="label">Email:</div>
+    <input
+            required className="field"
+            id="edit-email"
+            type="text"
+            name="username"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Edit Email"
+        />
+    <br/>
 
-	<div className="label">profile image:</div>
-		<input
-			required className="field"
-			id="edit-image-url"
-			type="image-url"
-			name="image_url"
-			value={formData.image_url}
-			onChange={handleChange}
-	/>
-
+		<button className="submit-button" type="submit" value="submit">Submit</button>
 	<br/>
-
-		<input className="submit-button" type="submit" value="submit" />
-	<br/>
-		    {activeUser ? <Link to={`/user/${activeUser.username}`}>Back to Profile</Link> : null}
+		{activeUser ? <Link to={`/user/${activeUser.username}`}>Back to Profile</Link> : null}
 		</form>
     </div>
     )
