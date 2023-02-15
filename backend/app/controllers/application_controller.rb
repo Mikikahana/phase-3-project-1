@@ -2,6 +2,18 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   #enpoints 
+  get "/readers" do
+	Reader.all.to_json
+  end
+
+  get '/readers/:id' do
+    reader = Reader.find(params[:id]).to_json
+  end
+
+  post '/readers' do
+    newReader = Reader.create(username:params[:username], password:params[:password]).to_json
+  end
+
   get "/books" do
     books = Book.all
     books.to_json()
