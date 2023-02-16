@@ -74,11 +74,11 @@ const handleFormSubmit = (event) => {
       justify="flex-start"
       alignItems="flex-start">
       {books.map(book_data => (
-        <Book 
-          book={book_data} 
-          key={book_data.id}
-          handleAddToCollection={handleAddToCollection}
-        />
+      <Book
+        book={book_data}
+        key={book_data.id}
+        handleAddToCollection={handleAddToCollection}
+      />
       ))}
     </Grid>
     </Box>

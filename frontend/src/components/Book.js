@@ -34,7 +34,7 @@ function Book({book,handleAddToCollection}) {
           </CardContent>
       </Card>
     </Box>
-      )
+   )
 }
 
 export default Book

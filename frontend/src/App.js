@@ -8,25 +8,32 @@ import Login from './components/Login'
 import { Route, Routes, useNavigate} from 'react-router-dom'
 
 function App() {
-  const [reader, setReader] = useState({})
+  // const [reader, setReader] = useState({})
   const [books, setBooks] = useState([])
   const [collection, setCollection] = useState([])
   const [search, setSearch] = useState("")
-  const navigate = useNavigate()
- 
+  // const navigate = useNavigate()
+
   useEffect(() => {
     fetch("http://localhost:9292/books")
     .then((response) => response.json())
     .then(setBooks)
+    fetch("http://localhost:9292/collections")
+    .then((response) => response.json())
+    .then(res => setCollection(res))
   },[])
 
-  function handleLogin(reader) {
-    setReader({})
-    navigate("/login")
-  }
+  // function handleLogin(reader) {
+  //   setReader({})
+  //   navigate("/login")
+  // }
 
   function addToCollection(book) {
-    
+    let myBooks = collection.map(book => book.title);
+    if (myBooks.includes(book.title)){
+      alert('This book is already in your collection.')
+    }else{
+
     fetch('http://localhost:9292/collections', {
       method: 'POST',
       headers: {
@@ -44,25 +51,25 @@ function App() {
     })
       .then(response => response.json())
       .then(data => setCollection(prevCollection => [...prevCollection, data]))
-      .catch(error => console.error('Error:', error))
+      .catch(error => console.error('Error:', error))}
   }
 
   const filteredBooks = books.filter(book => {
     return  book.title.toLowerCase().includes(search.toLowerCase()) ||
-    book.author.toLowerCase().includes(search.toLowerCase()) 
+    book.author.toLowerCase().includes(search.toLowerCase())
     })
-  
+
   return (
       <div className="app">
         <Header search={search} setSearch={setSearch}/>
         <Routes>
-          <Route exact path='/' element= {<Content 
+          <Route exact path='/' element= {<Content
             books={filteredBooks}
-            setBooks={setBooks} 
+            setBooks={setBooks}
             handleAddToCollection={addToCollection}
             /> }></Route>
 
-          <Route path='/collections' element={<MyCollection 
+          <Route path='/collections' element={<MyCollection
             collection={collection}
             setCollection={setCollection}
             />}></Route>
