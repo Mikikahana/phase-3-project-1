@@ -15,7 +15,7 @@ export default function MyCollection({collection, setCollection}) {
 
   return (
     <div>
-      <h1>My Collection of Books </h1>
+      <h1>My Book Collection </h1>
         {collection.map((myBooks,index) => (
             <CollectionBook
             myBooks={myBooks}

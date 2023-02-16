@@ -67,7 +67,40 @@ puts "Seeding books 📚..."
     published_year: 1934,
     description: "Ut nostrum voluptas. A et quia. Aut accusamus ut. Assumenda fuga repellendus. Vero exercitationem odit."
   )
-
-
+  Book.find_or_create_by(
+    image_url: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1638867089i/58690308.jpg",
+    title: "Book Lovers",
+    author: "Emily Henry",
+    published_year: 2022,
+    description: "An insightful, delightful, instant #1 New York Times bestseller from the author of Beach Read and People We Meet on Vacation."
+  )
+  Book.find_or_create_by(
+    image_url: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1553383690i/2657.jpg",
+    title: "To Kill a Mockingbird",
+    author: "Harper Lee",
+    published_year: 1960,
+    description: "The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it."
+  )
+  Book.find_or_create_by(
+    image_url: "https://embed.cdn.pais.scholastic.com/v1/channels/sso/products/identifiers/isbn/9780590353403/primary/renditions/700",
+    title: "Harry Potter and the Sorcerer's Stone",
+    author: "J. K. Rowling",
+    published_year: 1997,
+    description: "The book that introduced us to the wizarding world, Rowing’s Harry Potter and the Sorcerer’s Stone is the beginning of a magical journey no reader will want to miss. Follow the boy who lived as he navigates his first year at Hogwarts."
+  )
+  Book.find_or_create_by(
+    image_url: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1320399351i/1885.jpg",
+    title: "Pride and Prejudice",
+    author: "Jane Austen",
+    published_year: 1813,
+    description: "Since its immediate success in 1813, Pride and Prejudice has remained one of the most popular novels in the English language."
+  )
+  Book.find_or_create_by(
+    image_url: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1325861570i/170448.jpg",
+    title: "Animal Farm",
+    author: "George Orwell",
+    published_year: 1945,
+    description: "A farm is taken over by its overworked, mistreated animals. With flaming idealism and stirring slogans, they set out to create a paradise of progress, justice, and equality."
+  )
 
 puts "✅ Done seeding!"

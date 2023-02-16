@@ -5,7 +5,7 @@ import MyCollection from './components/MyCollection'
 import SignUp from './components/SignUp'
 import MyProfile from './components/MyProfile'
 import Login from './components/Login'
-import { Route, Routes} from 'react-router-dom'
+import { Route, Routes, useNavigate} from 'react-router-dom'
 
 function App() {
   // const [reader, setReader] = useState({})
