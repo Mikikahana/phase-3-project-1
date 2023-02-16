@@ -1,7 +1,7 @@
 import React from 'react';
-import './Search.css'
-
-
+// import './Search.css'
+import SearchIcon from '@mui/icons-material/Search'
+import Input from '@mui/material/Input'
 
 function Search({search, setSearch}) {
 
