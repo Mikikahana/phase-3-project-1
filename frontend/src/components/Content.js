@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Book from './Book'
 import './Content.css'
 import AddBookForm from './AddBookForm'
-import { Grid, Box } from "@mui/material"
+import { Grid, Box, Typography } from "@mui/material"
 
 const book = {
   title: "",
@@ -67,7 +67,9 @@ const handleFormSubmit = (event) => {
       />
     </Box>
     <Box m={2} pt={3}>
+    <Typography variant="h2">Browse Books</Typography>
     <Grid
+      m={2} pt={3}
       container
       spacing={2}
       direction="row"
