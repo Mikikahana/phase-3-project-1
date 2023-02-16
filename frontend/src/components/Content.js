@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Book from './Book'
 import './Content.css'
 import AddBookForm from './AddBookForm'
-
+import { Grid } from "@mui/material"
 
 const book = {
   title: "",
@@ -55,8 +55,13 @@ const handleFormSubmit = (event) => {
         handleFormSubmit={handleFormSubmit}
         newBook={newBook}
         handleInputChange={handleInputChange}
-
       />
+    <Grid
+      container
+      spacing={2}
+      direction="row"
+      justify="flex-start"
+      alignItems="flex-start">
       {books.map(book_data => (
         <Book 
           book={book_data} 
@@ -64,7 +69,7 @@ const handleFormSubmit = (event) => {
           handleAddToCollection={handleAddToCollection}
         />
       ))}
-      
+    </Grid>
     </div>
   )
 }
