@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Note from "./Note"
 
-export default function NotesList( {note,onUpdateNote, bookId,noteArr}) {
+export default function NotesList( {note,onUpdateNote, bookId}) {
   const [edit, setEdit] = useState("");
 
 
@@ -31,12 +31,12 @@ export default function NotesList( {note,onUpdateNote, bookId,noteArr}) {
 
   return (
         <>
-        {noteArr.map((note, index) => (
+        {/* {noteArr.map((note, index) => ( */}
           <Note 
-          key={index}
+          // key={index}
           note={note}
           />
-))}
+{/* ))} */}
           <li> 
           <form onSubmit={handleSubmit}>
             <button>Edit Note</button>

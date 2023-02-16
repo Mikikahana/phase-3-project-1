@@ -32,7 +32,7 @@ export default function CollectionBook({ myBooks, setToggle }) {
 useEffect(() => {
   fetch(`http://localhost:9292/collections/${id}/notes`)
     .then((response) => response.json())
-    .then((data) => setNoteArr(data))
+    .then((data) => setNoteArr(data.filter(note => note.user_collection_id === id)))
     .catch((error) => console.error("Error:", error));
 }, [id])
 
@@ -154,7 +154,7 @@ useEffect(() => {
             note={note}
             bookId={id}
             onUpdateNote={handleUpdateNote}
-            noteArr={noteArr.filter(note => note.user_collection_id === id)}
+            // noteArr={noteArr}
           />
           ))}
         </Box>
