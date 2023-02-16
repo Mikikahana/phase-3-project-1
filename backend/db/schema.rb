@@ -20,18 +20,10 @@ ActiveRecord::Schema.define(version: 2023_02_15_160439) do
     t.string "image_url"
   end
 
-  create_table "collections", force: :cascade do |t|
-    t.string "title"
-    t.string "author"
-    t.integer "published_year"
-    t.text "description"
-    t.string "image_url"
-  end
-
   create_table "notes", force: :cascade do |t|
     t.string "note"
     t.integer "reader_id"
-    t.integer "book_id"
+    t.integer "user_collection_id"
   end
 
   create_table "readers", force: :cascade do |t|

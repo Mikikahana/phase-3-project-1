@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
+import Note from "./Note"
 
-export default function NotesList({ note, onUpdateNote, bookId }) {
+export default function NotesList( {note,onUpdateNote, bookId,noteArr}) {
   const [edit, setEdit] = useState("");
+
 
   //Replace the existing note with a new one
   function handleSubmit(e) {
@@ -12,9 +14,7 @@ export default function NotesList({ note, onUpdateNote, bookId }) {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          note: edit,
-          reader_id: 9,
-          book_id: bookId,
+          note: edit
         }),
       }
     )
@@ -30,8 +30,14 @@ export default function NotesList({ note, onUpdateNote, bookId }) {
   }
 
   return (
-        <li> 
-          {note.note} 
+        <>
+        {noteArr.map((note, index) => (
+          <Note 
+          key={index}
+          note={note}
+          />
+))}
+          <li> 
           <form onSubmit={handleSubmit}>
             <button>Edit Note</button>
             <input 
@@ -43,6 +49,7 @@ export default function NotesList({ note, onUpdateNote, bookId }) {
             />
           </form>
         </li>
+        </>
   )
 }
 
