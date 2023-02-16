@@ -6,13 +6,14 @@ function Book({book,handleAddToCollection}) {
     const {image_url, title, author, published_year, description} = book
 
   return (
-    <Box width="300px">
+    <Box width="350px">
       <Card
         raised
         sx={{
           maxWidth: 280,
           margin: "0 auto",
           padding: "0.1em",
+          borderRadius: "15px"
         }}
       >
         <CardMedia

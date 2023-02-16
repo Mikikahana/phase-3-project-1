@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Book from './Book'
 import './Content.css'
 import AddBookForm from './AddBookForm'
-import { Grid } from "@mui/material"
+import { Grid, Box } from "@mui/material"
 
 const book = {
   title: "",
@@ -50,12 +50,23 @@ const handleFormSubmit = (event) => {
     });
 }
   return (
-    <div className="content">
+    <>
+    <Box m={2} pt={3}
+    sx={{
+      display:"flex",
+      height:"300",
+      width:"350",
+      alignItems:"center",
+      justifyContent:"center"
+    }}
+    >
       <AddBookForm 
         handleFormSubmit={handleFormSubmit}
         newBook={newBook}
         handleInputChange={handleInputChange}
       />
+    </Box>
+    <Box m={2} pt={3}>
     <Grid
       container
       spacing={2}
@@ -70,6 +81,7 @@ const handleFormSubmit = (event) => {
         />
       ))}
     </Grid>
-    </div>
+    </Box>
+    </>
   )
 }
