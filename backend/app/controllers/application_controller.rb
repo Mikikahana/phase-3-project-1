@@ -68,6 +68,16 @@ class ApplicationController < Sinatra::Base
 		note.to_json
 	end
 
+
+	#Patch a new note 
+	patch "/collections/collection_id/notes/:id" do
+		note = Note.find_by(id: params[:id], book_id: params[:book_id])
+		note.update(note: params[:note], reader_id: params[:reader_id])
+		note.to_json
+	end
+
+
+
 	post "/signup" do 
 		reader = Reader.find_by(username: params[:username])
 		if reader == nil
