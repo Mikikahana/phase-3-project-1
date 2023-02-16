@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import './CollectionBook.css'
 import NotesList from './NotesList'
 
@@ -7,7 +7,7 @@ export default function CollectionBook({myBooks,setToggle}) {
     const [noteText, setNoteText] = useState('')
     const [noteArr, setNoteArr] = useState([])
 
- // Delete a book from the collection 
+ // Delete a book from the collection
   function removeBook(id) {
       fetch(`http://localhost:9292/collections/${id}`, {
         method: 'DELETE',
@@ -17,7 +17,7 @@ export default function CollectionBook({myBooks,setToggle}) {
         .catch(error => console.error('Error:', error));
     }
 
- //Post a note to the book 
+ //Post a note to the book
   function handleChange(e) {
     setNoteText(e.target.value)
   }
@@ -43,8 +43,8 @@ export default function CollectionBook({myBooks,setToggle}) {
 
   return (
     <div className="myBooks-div">
-       <img src={image_url} alt="book-image"/>
-         <div className="desc-div">
+      <img src={image_url} alt="book-image"/>
+        <div className="desc-div">
           <h3>{title}</h3>
           <h4>{author}</h4>
           <h3>Published : {published_year}</h3>
@@ -53,22 +53,21 @@ export default function CollectionBook({myBooks,setToggle}) {
           <form onSubmit={handleSubmit}>
             <button type="submit">Add Notes</button>
             <textarea
-              type="text" 
-              name="noteText" 
-              value={noteText} 
-              onChange={handleChange} 
+              type="text"
+              name="noteText"
+              value={noteText}
+              onChange={handleChange}
             ></textarea>
-          
           </form >
           {noteArr.map((note, index) => {
-            
+
             console.log(note)
-            return <NotesList 
-            key={index} 
+            return <NotesList
+            key={index}
             note={note.note} />
             })}
-                       
-         </div>
+
+        </div>
     </div>
   )
 }
