@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import './Book.css'
 import { styled, Typography, Card, CardContent, Collapse, IconButton, Box, CardActions, Button, CardMedia } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
@@ -28,7 +27,7 @@ function Book({book,handleAddToCollection}) {
       <Card
         raised
         sx={{
-          maxWidth: 280,
+          maxWidth: 300,
           maxHeight: 800,
           margin: "0 auto",
           padding: "0.1em",

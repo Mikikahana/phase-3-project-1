@@ -4,7 +4,7 @@ import { AppBar, Box, InputBase, Input, Toolbar, Typography, Button, Grid } from
 import { styled, alpha } from '@mui/material/styles'
 import SearchIcon from '@mui/icons-material/Search'
 
-// globally setting up search bar
+// search bar styling
 const MaterialSearch = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -65,14 +65,6 @@ function Search({search, setSearch}) {
                 onChange={handleSearch}
               />
           </MaterialSearch>
-        // <div className="searchBar">
-        // <input className='search-name'
-        //     type="text"
-        //     placeholder='Type to search.....'
-        //     
-        // />
-        // <button className='searchButton'>Search</button>
-        // </div>
         )
 }
 
