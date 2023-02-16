@@ -1,11 +1,14 @@
+
 import React, { useState} from "react";
 import "./CollectionBook.css";
 import NotesList from "./NotesList";
+
 
 export default function CollectionBook({ myBooks, setToggle }) {
   const { title, image_url, author, published_year, description, id } = myBooks;
   const [noteText, setNoteText] = useState("");
   const [noteArr, setNoteArr] = useState([]);
+
 
   // Delete a book from the collection
   function removeBook(id) {
@@ -17,7 +20,8 @@ export default function CollectionBook({ myBooks, setToggle }) {
       .catch((error) => console.error("Error:", error));
   }
 
-  //Post a note to the book
+
+ //Post a note to the book
   function handleChange(e) {
     setNoteText(e.target.value);
   }

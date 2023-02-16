@@ -2,24 +2,25 @@ import React,{useState,useEffect} from 'react'
 import CollectionBook from './CollectionBook'
 
 export default function MyCollection({collection, setCollection}) {
-  const [toggle, setToogle] = useState(true)
+  const [toggle, setToggle] = useState(true)
+  // const [bookList, setBookList] = useState([])
 
 
-   useEffect(() => {
+  useEffect(() => {
       fetch(`http://localhost:9292/collections/9`,)
       .then(response => response.json())
       .then(data => setCollection(data))
     },[toggle,setCollection])
- 
+
 
   return (
     <div>
       <h1>My Collection of Books </h1>
         {collection.map((myBooks,index) => (
-            <CollectionBook 
+            <CollectionBook
             myBooks={myBooks}
             key={index}
-            setToggle={setToogle}
+            setToggle={setToggle}
             />
         ))}
     </div>
