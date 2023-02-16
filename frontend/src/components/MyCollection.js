@@ -15,7 +15,7 @@ export default function MyCollection({collection, setCollection}) {
 
   return (
     <Box m={2} pt={3}>
-      <h1>My Collection </h1>
+      <h1>My Library </h1>
       <Grid 
         container
         spacing={2}
