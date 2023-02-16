@@ -2,6 +2,8 @@
 import React, { useState,useEffect} from "react";
 import "./CollectionBook.css";
 import NotesList from "./NotesList";
+import { Typography, Card, CardContent, Box, Grid, Button, CardMedia } from '@mui/material'
+
 
 
 
@@ -65,7 +67,7 @@ useEffect(() => {
   }
 
   return (
-    <div className="myBooks-div">
+    <Box m={2} pt={3}>
       <img src={image_url} alt="book-image" />
       <div className="desc-div">
         <h3>{title}</h3>
@@ -93,6 +95,6 @@ useEffect(() => {
           />
         ))}
       </div>
-    </div>
+    </Box>
   );
 }

@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import CollectionBook from './CollectionBook'
+import { Typography, Card, CardContent, Box, Grid, Button, CardMedia } from '@mui/material'
 
 export default function MyCollection({collection, setCollection}) {
   const [toggle, setToggle] = useState(true)
@@ -13,8 +14,15 @@ export default function MyCollection({collection, setCollection}) {
     },[toggle,setCollection])
 
   return (
-    <div>
-      <h1>My Book Collection </h1>
+    <Box m={2} pt={3}>
+      <h1>My Collection </h1>
+      <Grid 
+        container
+        spacing={2}
+        direction="row"
+        justify="flex-start"
+        alignItems="flex-start"
+      >
         {collection.map((myBooks,index) => (
             <CollectionBook
             myBooks={myBooks}
@@ -22,6 +30,7 @@ export default function MyCollection({collection, setCollection}) {
             setToggle={setToggle}
             />
         ))}
-    </div>
+      </Grid>
+    </Box>
   )
 }
