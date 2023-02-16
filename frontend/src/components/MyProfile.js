@@ -27,7 +27,7 @@ function MyProfile ({ activeUser }) {
 			{profile ? (
 				<>
 					<h1 className="profile-heading">{isActiveUser ? "Your Profile |" : null } {`${profile.first_name} ${profile.last_name}`}</h1>
-          <EditMyProfile/>
+					<EditMyProfile/>
 					<div className="profile-pic-div">
 						<img className="user-picture-in-profile"
 						src={profile.image_url}

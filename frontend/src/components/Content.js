@@ -51,20 +51,18 @@ const handleFormSubmit = (event) => {
 }
   return (
     <div className="content">
-      <AddBookForm 
+      <AddBookForm
         handleFormSubmit={handleFormSubmit}
         newBook={newBook}
         handleInputChange={handleInputChange}
-
       />
       {books.map(book_data => (
-        <Book 
-          book={book_data} 
-          key={book_data.id}
-          handleAddToCollection={handleAddToCollection}
-        />
+      <Book
+        book={book_data}
+        key={book_data.id}
+        handleAddToCollection={handleAddToCollection}
+      />
       ))}
-      
     </div>
   )
 }
