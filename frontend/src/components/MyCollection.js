@@ -7,11 +7,10 @@ export default function MyCollection({collection, setCollection}) {
 
 
   useEffect(() => {
-      fetch(`http://localhost:9292/collections/9`,)
+      fetch(`http://localhost:9292/collections`,)
       .then(response => response.json())
       .then(data => setCollection(data))
     },[toggle,setCollection])
-
 
   return (
     <div>

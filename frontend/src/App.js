@@ -45,7 +45,7 @@ function App() {
         published_year: book.published_year,
         description: book.description,
         image_url: book.image_url,
-        reader_id: 9,
+        //reader_id: 9,
         notes:[]
       })
     })

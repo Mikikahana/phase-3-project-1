@@ -3,6 +3,7 @@
 Book.destroy_all
 Reader.destroy_all
 UserCollection.destroy_all
+Note.destroy_all
 
 # Seed your database here
 # readers
@@ -26,9 +27,10 @@ UserCollection.create(
     author: "Arturo Bode LLD",
     published_year: 1920,
     description: "Magnam qui consectetur. Ex voluptas nesciunt. Fugiat rem quia. Saepe eum est. Unde harum quis.",
-  reader_id: Reader.second.id
+  reader_id: Reader.first.id
 )
 
+  
 
 puts "Seeding books 📚..."
 
@@ -102,5 +104,8 @@ puts "Seeding books 📚..."
     published_year: 1945,
     description: "A farm is taken over by its overworked, mistreated animals. With flaming idealism and stirring slogans, they set out to create a paradise of progress, justice, and equality."
   )
+
+#Seeding Notes
+Note.create(note: "Good Book", reader_id:Reader.first.id, user_collection_id:UserCollection.all.sample.id)
 
 puts "✅ Done seeding!"

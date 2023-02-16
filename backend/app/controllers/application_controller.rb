@@ -35,11 +35,23 @@ class ApplicationController < Sinatra::Base
 		collection.to_json
 	end
 
-	get '/collections/:id' do
-		collection = UserCollection.where(reader_id:params[:id])
-		collection.to_json
+	get '/collections' do
+		reader_id = Reader.first.id
+		collection = UserCollection.where(reader_id:reader_id)
+		collection.to_json(include: :notes)
 	end
   
+	#Post new Notes 
+	post "/collections/:id/notes" do
+		note = Note.create(
+			note: params[:note],
+			user_collection_id: params[:user_collection_id],
+			reader_id: params[:reader_id]
+		)
+		note.to_json
+	end
+
+	#Post new book 
 	post "/collections" do
 		collections =UserCollection.create(
 			title: params[:title],
@@ -57,22 +69,19 @@ class ApplicationController < Sinatra::Base
 		user_collection.destroy
 		user_collection.to_json
 	end
-
-	#Post new Notes 
-	post "/collections/:id/notes" do
-		note = Note.create(
-			note: params[:note],
-			book_id: params[:book_id],
-			reader_id: params[:reader_id]
-		)
-		note.to_json
-	end
+	#Get notes 
+	get "/collections/:id/notes" do
+		note = Note.all
+		note.to_json()
+	  end
+	
+	
 
 
 	#Patch a new note 
-	patch "/collections/collection_id/notes/:id" do
-		note = Note.find_by(id: params[:id], book_id: params[:book_id])
-		note.update(note: params[:note], reader_id: params[:reader_id])
+	patch "/collections/:collection_id/notes/:id" do
+		note = Note.find_by(id: params[:id])
+		note.update(note: params[:note])
 		note.to_json
 	end
 

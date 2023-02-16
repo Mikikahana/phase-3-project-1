@@ -1,13 +1,24 @@
 
-import React, { useState} from "react";
+import React, { useState,useEffect} from "react";
 import "./CollectionBook.css";
 import NotesList from "./NotesList";
+
 
 
 export default function CollectionBook({ myBooks, setToggle }) {
   const { title, image_url, author, published_year, description, id } = myBooks;
   const [noteText, setNoteText] = useState("");
   const [noteArr, setNoteArr] = useState([]);
+
+
+useEffect(() => {
+  fetch(`http://localhost:9292/collections/${id}/notes`)
+    .then((response) => response.json())
+    .then((data) => setNoteArr(data))
+    .catch((error) => console.error("Error:", error));
+}, [id])
+
+
 
 
   // Delete a book from the collection
@@ -34,7 +45,7 @@ export default function CollectionBook({ myBooks, setToggle }) {
       body: JSON.stringify({
         note: noteText,
         reader_id: 9,
-        book_id: id,
+        user_collection_id: id,
       }),
     })
       .then((resp) => resp.json())
@@ -50,7 +61,7 @@ export default function CollectionBook({ myBooks, setToggle }) {
     const noteIndex = noteArr.findIndex((note) => note.id === updatedNote.id);
     const updatedNotes = [...noteArr];
     updatedNotes[noteIndex] = updatedNote;
-    setNoteArr(updatedNotes);
+    setNoteArr(updatedNotes)
   }
 
   return (
@@ -70,13 +81,15 @@ export default function CollectionBook({ myBooks, setToggle }) {
             value={noteText}
             onChange={handleChange}
           ></textarea>
+
         </form>
-        {noteArr.map((note, index) => (
+        {noteArr.filter(note => note.user_collection_id === id).map((note, index) => (
           <NotesList
-          key={index}
-          note={note}
-          bookId={id}
-          onUpdateNote={handleUpdateNote}
+            key={index}
+            note={note}
+            bookId={id}
+            onUpdateNote={handleUpdateNote}
+            noteArr={noteArr.filter(note => note.user_collection_id === id)}
           />
         ))}
       </div>
