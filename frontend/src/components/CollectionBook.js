@@ -73,7 +73,7 @@ useEffect(() => {
       .catch((error) => console.error("Error:", error))
   }
 
- // Update /Patch a note 
+ // Update /Patch a note
   function handleUpdateNote(updatedNote) {
     const noteIndex = noteArr.findIndex((note) => note.id === updatedNote.id);
     const updatedNotes = [...noteArr];
@@ -154,7 +154,6 @@ useEffect(() => {
             note={note}
             bookId={id}
             onUpdateNote={handleUpdateNote}
-            // noteArr={noteArr}
           />
           ))}
         </Box>

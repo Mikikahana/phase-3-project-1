@@ -31,17 +31,14 @@ export default function NotesList( {note,onUpdateNote, bookId}) {
 
   return (
         <>
-        {/* {noteArr.map((note, index) => ( */}
-          <Note 
-          // key={index}
+          <Note
           note={note}
           />
-{/* ))} */}
-          <li> 
+          <li>
           <form onSubmit={handleSubmit}>
             <button>Edit Note</button>
-            <input 
-            type="text" 
+            <input
+            type="text"
             name="edit"
             value={edit}
             onChange={(e) => setEdit(e.target.value)}
