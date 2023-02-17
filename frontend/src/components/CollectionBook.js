@@ -6,8 +6,7 @@ import { styled, Typography, Card, CardContent, Collapse, IconButton, Box, CardA
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { Grid} from "@mui/material";
 
-
-// globally setting up expandable cards
+// expandable cards set up
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props
   return <IconButton {...other} />
@@ -37,9 +36,6 @@ useEffect(() => {
     .then((data) => setNoteArr(data.filter(note => note.user_collection_id === id)))
     .catch((error) => console.error("Error:", error));
 }, [id])
-
-
-
 
   // Delete a book from the collection
   function removeBook(id) {
@@ -85,17 +81,16 @@ useEffect(() => {
 
   return (
     <Box m={2} pt={3} width="350px">
-
-        <Card raised
+      <Card raised
         className="book"
-          sx={{
-            maxWidth: 350,
-            maxHeight: 800,
-            margin: "0 auto",
-            padding: "0.1em",
-            borderRadius: "16px"
-          }}
-        >
+        sx={{
+          maxWidth: 350,
+          maxHeight: 800,
+          margin: "0 auto",
+          padding: "0.1em",
+          borderRadius: "16px"
+        }}
+      >
         <CardMedia
           component="img"
           height="250"
@@ -110,42 +105,42 @@ useEffect(() => {
             <Typography className="text"variant="subtitle1">Published: {published_year}</Typography>
           </CardContent>
           <CardActions disableSpacing>
-          <ExpandMore
-            expand={expanded}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-          >
-            <ExpandMoreIcon />
-          </ExpandMore>
+            <ExpandMore
+              expand={expanded}
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="show more"
+            >
+              <ExpandMoreIcon />
+            </ExpandMore>
           </CardActions>
-          <Collapse
-            in={expanded}
-            timeout="auto"
-            unmountOnExit
-          >
-          <CardContent>
-            <Typography className="text"gutterBottom variant="body1">{description}</Typography>
-            <Button variant="outlined" onClick={(e) => removeBook(id)}>Remove from my library</Button>
-          </CardContent>
-        </Collapse>
-      </Card>
+            <Collapse
+              in={expanded}
+              timeout="auto"
+              unmountOnExit
+            >
+            <CardContent>
+              <Typography className="text"gutterBottom variant="body1">{description}</Typography>
+              <Button variant="outlined" onClick={(e) => removeBook(id)}>Remove from collection</Button>
+            </CardContent>
+            </Collapse>
+          </Card>
       <br/>
       <Box
-      component="form"
-      sx={{
-        '& .MuiTextField-root': { width: 350 },
-      }}
-      noValidate
-      autoComplete="off"
-      onSubmit={handleSubmit}
-    >
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { width: 350 },
+        }}
+        noValidate
+        autoComplete="off"
+        onSubmit={handleSubmit}
+      >
       <TextField
-      label="Add any book notes"
-      type="text"
-      name="noteText"
-      value={noteText}
-      onChange={handleChange}
+        label="Add any book notes"
+        type="text"
+        name="noteText"
+        value={noteText}
+        onChange={handleChange}
       />
         <br/>
         <br/>

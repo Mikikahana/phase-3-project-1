@@ -56,7 +56,7 @@ export default function Content({ books, handleAddToCollection ,setBooks, isAddB
   return (
     <div className="content">
       <Box
-        m={2}
+        m={1}
         pt={3}
         sx={{
           display: "flex",
@@ -76,12 +76,15 @@ export default function Content({ books, handleAddToCollection ,setBooks, isAddB
   />
 )}
       </Box>
+      <Box sx={{alignItems: "left"}}>
+      <Typography variant="h2">Browse books</Typography>
+      </Box>
       <Box m={2} pt={3}>
         <Grid
           m={2}
           pt={3}
           container
-          spacing={3}
+          spacing={4}
           direction="row"
           justify="flex-start"
           alignItems="flex-start"

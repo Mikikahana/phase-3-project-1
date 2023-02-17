@@ -39,7 +39,7 @@ const MaterialSearch = styled('div')(({ theme }) => ({
       transition: theme.transitions.create('width'),
       width: '100%',
       [theme.breakpoints.up('sm')]: {
-        width: '12ch',
+        width: '20ch',
         '&:focus': {
           width: '20ch',
         }
@@ -59,7 +59,7 @@ function Search({search, setSearch}) {
               <SearchIcon />
             </SearchIconWrapper>
               <StyledInputBase
-                placeholder="Search…"
+                placeholder="Search by Author or Title"
                 inputProps={{ 'aria-label': 'search' }}
                 value={search}
                 onChange={handleSearch}
