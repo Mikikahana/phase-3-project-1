@@ -13,12 +13,12 @@ export default function MyCollection({collection, setCollection}) {
     },[toggle,setCollection])
 
   return (
-    <Box m={2} pt={3}>
+    <Box m={2} pt={3} sx={{alignItems: "center"}}>
       <Typography variant="h2">My Collection</Typography>
-      <Grid 
+      <Grid m={2} pt={3}
         container
         spacing={2}
-        direction="column"
+        direction="row"
         justify="flex-start"
         alignItems="flex-start"
       >

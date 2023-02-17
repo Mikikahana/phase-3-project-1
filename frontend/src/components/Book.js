@@ -49,7 +49,7 @@ function Book({book,handleAddToCollection}) {
           <CardContent >
             <Typography  className='text' variant="h5">{title}</Typography>
             <Typography className='text' variant="subtitle1">By {author}</Typography>
-            <Typography className='text' variant="subtitle1">Published : {published_year}</Typography>
+            <Typography className='text' variant="subtitle1">Published: {published_year}</Typography>
           </CardContent>
           <CardActions disableSpacing>
           <ExpandMore
