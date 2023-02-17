@@ -6,6 +6,7 @@ import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import AddBookForm from './AddBookForm'
 import MenuIcon from '@mui/icons-material/Menu';
+import './Header.css'
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -77,6 +78,14 @@ export default function Header({search, setSearch, activeUser, setIsAddBookFormO
     text.forEach((text) => {
       text.style.color = isDarkMode ?  '#000' :'#FFF'
     })
+
+    const browse = document.querySelector('.browse-books')
+    browse.style.color = isDarkMode ? '#000' :'#FFF'
+
+    const arrow = document.querySelectorAll('.down-arrow')
+    arrow.forEach((arrow) =>{
+      arrow.style.color = isDarkMode ? '#000' :'#FFF'
+    })
   }
 
   return (
@@ -91,7 +100,7 @@ export default function Header({search, setSearch, activeUser, setIsAddBookFormO
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-              BROKEN LIBRARY
+             <MenuItem className="BL" component={Link} to="/">BROKEN LIBRARY</MenuItem> 
               </Typography>
               </Box>
             <Search search={search} setSearch={setSearch}/>

@@ -5,7 +5,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 // globally setting up expandable cards
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props
-  return <IconButton {...other} />
+  return <IconButton {...other}  className="down-arrow"/>
 })(({ theme, expand }) => ({
   transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
   marginLeft: 'auto',
@@ -67,7 +67,7 @@ function Book({book,handleAddToCollection}) {
             unmountOnExit
           >
           <CardContent>
-            <Typography className='text'gutterBottom variant="body1">{description}</Typography>
+            <Typography gutterBottom variant="body1">{description}</Typography>
             <Button variant="outlined" onClick={() => handleAddToCollection(book)}>Add to my Library</Button>
           </CardContent>
         </Collapse>
