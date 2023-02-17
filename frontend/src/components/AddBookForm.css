@@ -6,3 +6,30 @@
     display: flex;
     flex-direction: column;
 }
+
+.modal-form {
+    display:flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-around;
+}
+.title-input {
+    margin-left:90px;
+    width:200px;
+}
+.author-input {
+    margin-left:73px;
+    width:200px;
+}
+.img-input {
+    margin-left:77px;
+    width:200px;
+}
+.pub-input {
+    margin-left:15px;
+    width:200px;
+}
+.desc-input {
+    margin-left:40px;
+    width:200px;
+}

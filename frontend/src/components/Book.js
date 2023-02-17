@@ -23,8 +23,9 @@ function Book({book,handleAddToCollection}) {
     }
 
   return (
-    <Box width="350px">
+    <Box width="350px" >
       <Card
+      className="book"
         raised
         sx={{
           maxWidth: 300,
@@ -33,19 +34,21 @@ function Book({book,handleAddToCollection}) {
           padding: "0.1em",
           borderRadius: "16px"
         }}
-      >
+        >
         <CardMedia
           component="img"
           height="250"
           image={image_url}
           alt="book cover image"
           sx={{ objectFit: "contain" }}
+
         >
         </CardMedia>
-          <CardContent>
-            <Typography variant="h5">{title}</Typography>
-            <Typography variant="subtitle1">By {author}</Typography>
-            <Typography variant="subtitle1">Published : {published_year}</Typography>
+
+          <CardContent >
+            <Typography  className='text' variant="h5">{title}</Typography>
+            <Typography className='text' variant="subtitle1">By {author}</Typography>
+            <Typography className='text' variant="subtitle1">Published : {published_year}</Typography>
           </CardContent>
           <CardActions disableSpacing>
           <ExpandMore
@@ -63,7 +66,7 @@ function Book({book,handleAddToCollection}) {
             unmountOnExit
           >
           <CardContent>
-            <Typography gutterBottom variant="body1">{description}</Typography>
+            <Typography className='text'gutterBottom variant="body1">{description}</Typography>
             <Button variant="outlined" onClick={() => handleAddToCollection(book)}>Add to my Library</Button>
           </CardContent>
         </Collapse>
