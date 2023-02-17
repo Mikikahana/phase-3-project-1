@@ -1,8 +1,11 @@
 import React, {useState} from 'react'
 import Note from "./Note"
+import './NotesList.css'
 
 export default function NotesList( {note,onUpdateNote, bookId}) {
-  const [edit, setEdit] = useState("");
+  const [edit, setEdit] = useState("")
+  const [showEditField, setShowEditField] = useState(false)
+
 
 
   //Replace the existing note with a new one
@@ -30,23 +33,27 @@ export default function NotesList( {note,onUpdateNote, bookId}) {
   }
 
   return (
-        <>
-          <Note
-          note={note}
-          />
-          <li>
+    <div className="notes-div">
+      <Note note={note} />
+      <div className="note-div">
+        {showEditField ? (
           <form onSubmit={handleSubmit}>
-            <button>Edit Note</button>
             <input
-            type="text"
-            name="edit"
-            value={edit}
-            onChange={(e) => setEdit(e.target.value)}
-            placeholder="Edit this note"
+              type="text"
+              name="edit"
+              value={edit}
+              onChange={(e) => setEdit(e.target.value)}
+              placeholder="Edit this note"
             />
+            <button type="submit">Save</button>
           </form>
-        </li>
-        </>
-  )
+        ) : (
+          <button className="editBtn" onClick={() => setShowEditField(true)}>
+            Edit Note
+          </button>
+        )}
+      </div>
+    </div>
+  );
 }
 

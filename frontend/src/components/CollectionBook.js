@@ -4,6 +4,7 @@ import "./CollectionBook.css";
 import NotesList from "./NotesList";
 import { styled, Typography, Card, CardContent, Collapse, IconButton, Box, CardActions, Button, CardMedia, TextField } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { Grid} from "@mui/material";
 
 // expandable cards set up
 const ExpandMore = styled((props) => {
@@ -22,6 +23,7 @@ export default function CollectionBook({ myBooks, setToggle }) {
   const [noteText, setNoteText] = useState("")
   const [noteArr, setNoteArr] = useState([])
   const [expanded, setExpanded] = useState(false)
+  const [showNotes, setShowNotes] = useState(false)
 
   // Handle card collapse functionality
   const handleExpandClick = () => {
@@ -140,18 +142,23 @@ useEffect(() => {
         value={noteText}
         onChange={handleChange}
       />
-        <Button variant="contained" sx={{ background: "#080808" }} type="submit">Add Notes</Button>
-      </Box>
-        <Box m={1} pt={2} width="350px">
-          {noteArr.map((note, index) => (
-            <NotesList
-              key={index}
-              note={note}
-              bookId={id}
-              onUpdateNote={handleUpdateNote}
-            />
-            ))}
+        <br/>
+        <br/>
+          <Button variant="contained" sx={{ background: "#080808" }} type="submit">Add Notes</Button>
         </Box>
+          <Button onClick={() => setShowNotes(prev=>!prev)}variant="contained" sx={{ background: "#080808" }} type="text">Show Notes</Button>
+          {showNotes && (
+            <Box m={1} pt={2} width="350px">
+              {noteArr.map((note, index) => (
+              <NotesList
+                key={index}
+                note={note}
+                bookId={id}
+                onUpdateNote={handleUpdateNote}
+              />
+              ))}
+            </Box>
+          )}
     </Box>
   );
 }
