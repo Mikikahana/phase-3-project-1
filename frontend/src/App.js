@@ -8,12 +8,12 @@ import Login from './components/Login'
 import { Route, Routes, useNavigate} from 'react-router-dom'
 
 function App() {
-  // const [reader, setReader] = useState({})
+  const [reader, setReader] = useState({})
   const [books, setBooks] = useState([])
   const [collection, setCollection] = useState([])
   const [search, setSearch] = useState("")
   const [isAddBookFormOpen, setIsAddBookFormOpen] = useState(false)
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch("http://localhost:9292/books")
@@ -24,13 +24,11 @@ function App() {
     .then(res => setCollection(res))
   },[])
 
-  // function handleLogin(reader) {
-  //   setReader({})
-  //   navigate("/login")
-  // }
-
+  function handleLogin(reader) {
+    setReader({})
+    navigate("/")
+  }
   
-
   function addToCollection(book) {
     let myBooks = collection.map(book => book.title);
     if (myBooks.includes(book.title)){
@@ -79,11 +77,13 @@ function App() {
             setCollection={setCollection}
             />}></Route>
 
-          <Route path='/signup' element={<SignUp />}/>
+          <Route path='/signup' element={<SignUp 
+            handleLogin={handleLogin}
+            />}></Route>
 
           <Route path='/profile' element={<MyProfile/>}/>
             {/* <SignUp handleLogin={handleLogin}/> */}
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login handleLogin={handleLogin}/>} />
         </Routes>
       </div>
   )
