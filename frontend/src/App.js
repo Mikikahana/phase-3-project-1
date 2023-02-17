@@ -12,6 +12,7 @@ function App() {
   const [books, setBooks] = useState([])
   const [collection, setCollection] = useState([])
   const [search, setSearch] = useState("")
+  const [isAddBookFormOpen, setIsAddBookFormOpen] = useState(false)
   // const navigate = useNavigate()
 
   useEffect(() => {
@@ -27,6 +28,8 @@ function App() {
   //   setReader({})
   //   navigate("/login")
   // }
+
+  
 
   function addToCollection(book) {
     let myBooks = collection.map(book => book.title);
@@ -61,12 +64,14 @@ function App() {
 
   return (
       <div className="app">
-        <Header search={search} setSearch={setSearch}/>
+        <Header search={search} setSearch={setSearch} setIsAddBookFormOpen={setIsAddBookFormOpen}/>
         <Routes>
           <Route exact path='/' element= {<Content
             books={filteredBooks}
             setBooks={setBooks}
             handleAddToCollection={addToCollection}
+            isAddBookFormOpen={isAddBookFormOpen}
+            setIsAddBookFormOpen={setIsAddBookFormOpen}
             /> }></Route>
 
           <Route path='/collections' element={<MyCollection

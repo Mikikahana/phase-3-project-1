@@ -84,6 +84,7 @@ useEffect(() => {
   return (
     <Box m={2} pt={3} width="350px">
         <Card raised
+        className="book"
           sx={{
             maxWidth: 350,
             maxHeight: 800,
@@ -101,9 +102,9 @@ useEffect(() => {
         >
         </CardMedia>
           <CardContent>
-            <Typography variant="h5">{title}</Typography>
-            <Typography variant="subtitle1">By {author}</Typography>
-            <Typography variant="subtitle1">Published: {published_year}</Typography>
+            <Typography className="text"variant="h5">{title}</Typography>
+            <Typography className="text"variant="subtitle1">By {author}</Typography>
+            <Typography className="text"variant="subtitle1">Published: {published_year}</Typography>
           </CardContent>
           <CardActions disableSpacing>
           <ExpandMore
@@ -121,7 +122,7 @@ useEffect(() => {
             unmountOnExit
           >
           <CardContent>
-            <Typography gutterBottom variant="body1">{description}</Typography>
+            <Typography className="text"gutterBottom variant="body1">{description}</Typography>
             <Button variant="outlined" onClick={(e) => removeBook(id)}>Remove from my library</Button>
           </CardContent>
         </Collapse>
