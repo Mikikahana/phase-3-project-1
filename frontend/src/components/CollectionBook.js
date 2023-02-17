@@ -123,7 +123,7 @@ useEffect(() => {
           >
           <CardContent>
             <Typography className="text"gutterBottom variant="body1">{description}</Typography>
-            <Button variant="outlined" onClick={(e) => removeBook(id)}>Remove from my library</Button>
+            <Button variant="outlined" onClick={(e) => removeBook(id)}>Remove from collection</Button>
           </CardContent>
         </Collapse>
       </Card>

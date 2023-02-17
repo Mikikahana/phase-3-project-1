@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import Search from "./Search";
 import {Link} from 'react-router-dom';
-import { AppBar, Box, InputBase, Toolbar, Typography, Button, Grid } from "@mui/material";
+import { AppBar, Box, Menu, MenuItem, IconButton, InputBase, Toolbar, Typography, Button, Grid } from "@mui/material";
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import AddBookForm from './AddBookForm'
+import MenuIcon from '@mui/icons-material/Menu';
 
 
 export default function Header({search, setSearch, activeUser, setIsAddBookFormOpen}) {
 
   const [isDarkMode, setIsDarkMode] = useState(false)
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   const handleAddBookClick = () => {
     setIsAddBookFormOpen(true);
   };
-  
 
   const handleDarkModeClick = () => {
     setIsDarkMode(!isDarkMode)
@@ -44,16 +45,35 @@ export default function Header({search, setSearch, activeUser, setIsAddBookFormO
               </Button>
             </Box>
             <Search search={search} setSearch={setSearch}/>
-            <Link to='/'><Button variant="contained" sx={{ background: isDarkMode ? "black" : "#080808" }}>Home</Button></Link>
-            <Link to='/collections'><Button variant="contained" sx={{ background: isDarkMode ? "black" : "#080808" }}>My Library</Button></Link>
-            <Button variant="contained" sx={{ background: isDarkMode ? "black" : "#080808" }} onClick={handleAddBookClick}>Add New Book</Button>
-            {/* { !activeUser ? <Link to='/profile'><Button variant="contained" sx={{ background: isDarkMode ? "black" : "#080808" }}>My Profile</Button></Link> :
-            <Link to='/login'><Button variant="contained" sx={{ background: isDarkMode ? "black" : "#080808" }}>Login</Button></Link>}  */}
+            <Box sx={{margin_left:"auto"}}>
+            <IconButton
+            // size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            onClick={() => setIsDrawerOpen(true)}
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Menu  
+            id="demo-positioned-menu"
+            color="inherit"
+            open={isDrawerOpen}
+            onClose={() => setIsDrawerOpen(false)}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right"
+            }}
+            >
+              <MenuItem component={Link} to="/">Home</MenuItem>
+              <MenuItem component={Link} to='/collections'>My Collection</MenuItem>
+              <MenuItem onClick={handleAddBookClick}>Add a Book</MenuItem>
+            </Menu>
+            </Box>
           </Toolbar>
         </AppBar>
       </Box>
-      
-
     </div>
   );
 }
