@@ -51,6 +51,8 @@ npm start
 - belongs to a book
 - belongs to a reader
 - belongs to a collection
+<img width="554" alt="Screen Shot 2023-02-17 at 12 00 50 AM" src="https://user-images.githubusercontent.com/114179757/219553525-93cd62d4-e8b2-4a03-a9cd-712dc50fe9c1.png">
+
 
 ## Backend API Endpoints
 <img width="610" alt="Screen Shot 2023-02-16 at 8 11 16 PM" src="https://user-images.githubusercontent.com/114179757/219536585-22969efa-fe67-4ac8-bae4-b7007150aef4.png">
