@@ -76,7 +76,7 @@ export default function Content({ books, handleAddToCollection ,setBooks, isAddB
   />
 )}
       </Box>
-      <Box sx={{alignItems: "left"}}>
+      <Box sx={{alignItems: "center"}}>
       <Typography variant="h2">Browse books</Typography>
       </Box>
       <Box m={2} pt={3}>
