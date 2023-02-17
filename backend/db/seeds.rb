@@ -102,7 +102,7 @@ puts "Seeding books 📚..."
     description: "Since Gran died a few months ago, twenty-five-year-old Molly has been navigating life's complexities all by herself. No matter—she throws herself with gusto into her work as a hotel maid. Her unique character, along with her obsessive love of cleaning and proper etiquette, make her an ideal fit for the job."
   )
   Book.find_or_create_by(
-    image_url: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1470427482i/27362503.jpg",
+    image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi7M466LBznEUKVqEQTBh8CpWl8Gp5Ql0qIg&usqp=CAU",
     title: "The Lion, the Witch and the Wardrobe",
     author: "C.S. Lewis",
     published_year: 1950,
