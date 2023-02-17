@@ -9,7 +9,7 @@ import { Grid} from "@mui/material";
 // expandable cards set up
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props
-  return <IconButton {...other} />
+  return <IconButton {...other} className="down-arrow"/>
 })(({ theme, expand }) => ({
   transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
   marginLeft: 'auto',
