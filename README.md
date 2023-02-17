@@ -1,20 +1,56 @@
-# phase-3-project
+# phase-3-project 
+# Broken Library 
+Broken Library is  an app where users can browse a large selection of books, add any their personal collection, and add book-specific notes within their collection.
 
-Bookstore 
+## Technologies Used
 
-Project description: Bookstore is  an app where users can browse books, add or delete any to/from their own collection, and add notes to the books in their collection.
+- JavaScript
+- React
+- React Router
+- Ruby
+- ActiveRecord
+- Sinatra
+- Material-UI
 
-Our frontend we used JavaScript and React and our backend was built using Ruby Active Record, Sinatra and Postman.
+## How to Use
+First, fork or clone the repository:
+```
+git clone git@github.com:KlajdoQ/phase-3-project.git
+```
 
-Each book has a title, author, publishing date, image, and description.
+Next, install and run the backend:
+```
+cd backend
+bundle install
+rake db:migrate
+rake db:seed
+rake server
+```
 
-Collections contains the book and notes. 
-<img width="1387" alt="Screen Shot 2023-02-16 at 9 00 10 PM" src="https://user-images.githubusercontent.com/112830558/219530326-0b33f09a-fd18-4542-894a-31d1366d6aa0.png">
+Next, open a new terminal to install and run the frontend:
+```
+cd frontend
+npm install
+npm start
+```
 
-Schema
-<img width="1392" alt="Screen Shot 2023-02-16 at 8 59 35 PM" src="https://user-images.githubusercontent.com/112830558/219530363-c9ec13e8-fa91-4158-9b87-a3db30db3712.png">
+## Backend Relationships
+### Reader
+- have many books
+- have many notes
+- have one collection
+### Book (join table)
+- belongs to a reader
+- belongs to a collection
+- have many notes through a reader
+### Collection
+- has many books
+- has many notes
+- belongs to a reader
+### Note
+- belongs to a book
+- belongs to a reader
+- belongs to a collection
 
-A chart of the API routes.
-<img width="610" alt="Screen Shot 2023-02-16 at 8 11 16 PM" src="https://user-images.githubusercontent.com/112830558/219530533-3356a163-76c8-4865-8362-a1f9ba36d49f.png">
-
-
+## Backend API Endpoints
+<img width="610" alt="Screen Shot 2023-02-16 at 8 11 16 PM" src="https://user-images.githubusercontent.com/114179757/219536585-22969efa-fe67-4ac8-bae4-b7007150aef4.png">
