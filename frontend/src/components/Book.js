@@ -32,7 +32,8 @@ function Book({book,handleAddToCollection}) {
           maxHeight: 800,
           margin: "0 auto",
           padding: "0.1em",
-          borderRadius: "16px"
+          borderRadius: "16px",
+          marginBottom: "25px",
         }}
         >
         <CardMedia

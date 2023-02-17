@@ -81,7 +81,7 @@ export default function Content({ books, handleAddToCollection ,setBooks, isAddB
           m={2}
           pt={3}
           container
-          spacing={2}
+          spacing={3}
           direction="row"
           justify="flex-start"
           alignItems="flex-start"
