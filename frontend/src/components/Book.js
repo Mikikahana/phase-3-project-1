@@ -29,10 +29,11 @@ function Book({book,handleAddToCollection}) {
         raised
         sx={{
           maxWidth: 300,
-          maxHeight: 800,
+          maxHeight: 1000,
           margin: "0 auto",
           padding: "0.1em",
-          borderRadius: "16px"
+          borderRadius: "16px",
+          marginBottom: "10%"
         }}
         >
         <CardMedia
