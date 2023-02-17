@@ -26,18 +26,8 @@ function MyProfile ({ activeUser }) {
     <div className="profile-container">
 			{profile ? (
 				<>
-					<h1 className="profile-heading">{isActiveUser ? "Your Profile |" : null } {`${profile.first_name} ${profile.last_name}`}</h1>
+					<h1 className="profile-heading">{!isActiveUser ? "Your Profile" : null }</h1>
 					<EditMyProfile/>
-					<div className="profile-pic-div">
-						<img className="user-picture-in-profile"
-						src={profile.image_url}
-						alt="profile"
-						/>
-
-						{isActiveUser ? (
-							<Link className="link-to-edit" to={`/edit-user/${profile.username}`}><button className="edit-button">Edit Profile</button></Link>
-						) : null}
-					</div>
 				</>
 			) : null}
     </div>

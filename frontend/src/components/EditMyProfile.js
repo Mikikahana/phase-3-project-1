@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./EditMyProfile.css"
-
 
 function EditMyProfile ({ activeUser, setActiveUser }) {
 	const initialValues = {
@@ -12,18 +11,14 @@ function EditMyProfile ({ activeUser, setActiveUser }) {
 	};
 
 	const [formData, setFormData] = useState(initialValues);
-
 	const params = useParams();
-	const navigate = useNavigate();
 
 	useEffect(() => {
 		fetch(`http://localhost:9292/find_by_username/${params.username}`)
 		.then(res => res.json())
 		.then(user => {
 			if (activeUser) {
-				if (user.id !== activeUser.id) {
-					navigate(`/user/${activeUser.username}`);
-				}
+				if (user.id !== activeUser.id){}
 			}
 			setFormData(user);
 		})
@@ -47,7 +42,6 @@ function EditMyProfile ({ activeUser, setActiveUser }) {
 			.then(user => {
 				setActiveUser(user);
 				setFormData(initialValues);
-				navigate(`/user/${user.username}`);
 			})
 			.catch(e => console.error(e));
 	}
@@ -105,7 +99,6 @@ function EditMyProfile ({ activeUser, setActiveUser }) {
 
 		<button className="submit-button" type="submit" value="submit">Submit</button>
 	<br/>
-		{activeUser ? <Link to={`/user/${activeUser.username}`}>Back to Profile</Link> : null}
 		</form>
     </div>
     )
