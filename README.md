@@ -1,6 +1,6 @@
 # phase-3-project 
 # Broken Library 
-Broken Library is  an app where users can browse a large selection of books, add any their personal collection, and add book-specific notes within their collection.
+Broken Library is  an app where users can browse a large selection of books, add any to their personal collection, and add book-specific notes to their collection.
 
 ## Technologies Used
 
