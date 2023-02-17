@@ -74,13 +74,6 @@ puts "Seeding books 📚..."
     description: "The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it."
   )
   Book.find_or_create_by(
-    image_url: "https://embed.cdn.pais.scholastic.com/v1/channels/sso/products/identifiers/isbn/9780590353403/primary/renditions/700",
-    title: "Harry Potter and the Sorcerer's Stone",
-    author: "J. K. Rowling",
-    published_year: 1997,
-    description: "The book that introduced us to the wizarding world, Rowing’s Harry Potter and the Sorcerer’s Stone is the beginning of a magical journey no reader will want to miss. Follow the boy who lived as he navigates his first year at Hogwarts."
-  )
-  Book.find_or_create_by(
     image_url: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1320399351i/1885.jpg",
     title: "Pride and Prejudice",
     author: "Jane Austen",
@@ -100,13 +93,6 @@ puts "Seeding books 📚..."
     author: "Nita Prose",
     published_year: 2022,
     description: "Since Gran died a few months ago, twenty-five-year-old Molly has been navigating life's complexities all by herself. No matter—she throws herself with gusto into her work as a hotel maid. Her unique character, along with her obsessive love of cleaning and proper etiquette, make her an ideal fit for the job."
-  )
-  Book.find_or_create_by(
-    image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi7M466LBznEUKVqEQTBh8CpWl8Gp5Ql0qIg&usqp=CAU",
-    title: "The Lion, the Witch and the Wardrobe",
-    author: "C.S. Lewis",
-    published_year: 1950,
-    description: "Four kids travel through a wardrobe to the land of Narnia and learn of their destiny to free it with the guidance of a mystical lion."
   )
   Book.find_or_create_by(
     image_url: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1470427482i/27362503.jpg",
@@ -163,13 +149,6 @@ puts "Seeding books 📚..."
     author: "Colleen Hoover",
     published_year: 2018,
     description: "Verity focuses on the life of Lowen Ashleigh, a young writer living in New York City struggling for money and not really living the life she envisioned. One day she bumps into a man who will change her life forever in more ways than one."
-  )
-  Book.find_or_create_by(
-    image_url: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1584633432i/50623864.jpg",
-    title: "The Invisible Life of Addie Larue",
-    author: "V.E. Schwab",
-    published_year: 2020,
-    description: "The story follows a young French woman in 1714 who makes a bargain with the Dark that makes her immortal, but curses her to be forgotten by everyone she meets."
   )
   Book.find_or_create_by(
     image_url: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1586722975i/2767052.jpg",
