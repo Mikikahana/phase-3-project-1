@@ -145,9 +145,7 @@ useEffect(() => {
         <br/>
         <br/>
           <Button variant="contained" sx={{ background: "#080808" }} type="submit">Add Notes</Button>
-        </Box>
-          <Button onClick={() => setShowNotes(prev=>!prev)}variant="contained" sx={{ background: "#080808" }} type="text">Show Notes</Button>
-          {showNotes && (
+        </Box>        
             <Box m={1} pt={2} width="350px">
               {noteArr.map((note, index) => (
               <NotesList
@@ -158,7 +156,6 @@ useEffect(() => {
               />
               ))}
             </Box>
-          )}
     </Box>
   );
 }
