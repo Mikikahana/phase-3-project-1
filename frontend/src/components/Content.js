@@ -45,7 +45,7 @@ export default function Content({ books, handleAddToCollection ,setBooks, isAddB
         throw new Error("Failed to add new book");
       })
       .then((newBookResponse) => {
-        setBooks([...books, newBookResponse]);
+        setBooks([newBookResponse, ...books ]);
       })
       .catch((error) => {
         console.error(error);
